@@ -109,7 +109,48 @@ It can be seen that when you look at all the three in-built feature plot importa
 
 A Support Vector Machine (SVM) classifier is a supervised machine learning algorithm that analyzes data for classification and regression analysis. Its primary objective is to find the optimal hyperplane (decision boundary) in an N-dimensional space that distinctly classifies data points into different categories. this makes a best model for our classification problem.
 
+![confusion matrix of support vector machine classifier](/plots/svmc.png)
 
+A non-linear support vector machine classifier is used with a rbf kernel.The SVM classifier with an RBF kernel involves initializing the classifier, we train the model training data, making predictions on our validation data, and evaluating its performance using the confusion matrix, accuracy score, etc. The rbf kernel is used because it provides a robust framework for tackling non-linear classification tasks. It is suitable when there is no prior knowledge about the data distribution or when the decision boundary is highly irregular (non-linear). It implicitly maps the data into a higher-dimensional space.
+
+The confusion matrix above shows the accuracy and inaccuracy score of how predictive the non-linear SVM classifier predicts our target variable. The model was able to correctly predict 17696 legitmate URL and also correctly predict 20089 cyber threats phishing URL. The model incorrectly predicted 4109 legitimate URL instead of cyber threat URL and also wrongly predicted 550 cyber threats URL instead of a legitimate URL. The svm classifier had a prediction accuracy score of 89%. This makes the model less attractive for model selection in our subsequent analysis.
+
+### Decision Tree Classifier
+
+A decision tree classifier for binary response is a type of supervised machine learning model that predicts binary outcomes (i.e., outcomes that can take one of two possible values, typically represented as 0 and 1).The algorithm splits the data at each node based on a chosen feature and a splitting criterion. For binary classification, common splitting criteria include Gini impurity and entropy (information gain)
+
+![confusion matrix of decision tree](/plots/treecm.png)
+
+Here our training data is recursively partitioned into feature space based on the values of the features and default splitting criteria (e.g., Gini impurity, entropy).At each step, the algorithm selects the feature that best separates the data into more homogeneous groups (with respect to the target variable).By the end of the training process, the decision tree model is created, which consists of a series of nodes and branches that represent the learned decision rules derived from the training data.The validation data is used to evaluate the performance of our trained decision tree classifier. It serves as an independent dataset that the model hasn't seen during training, allowing you to assess how well the model generalizes to new, unseen data.For each instance in the test data, the decision tree model follows the learned decision rules to predict the corresponding class label (0 or 1 in the case of binary classification). This is then evaluated using a confusion matrix, accuracy score,etc.
+
+The decision tree classifer had 100% accuracy. The confusion matrix above shows a total count of 18246 indicating that the model was able able predict all of the positive class, that URL that are legitgimate. It also correctly predicted a total count 24198 URL that that are threat to an organization. The model did not incorrectly predict any legitimate URL nor Phishing URL. This makes decision tree a best model for selecytion in our subsequent analysis.
+
+
+![Feature Selection decision tree](/plots/treefeat.png)
+
+The graph above shows the most important variables selected in the predictive process of decision tree classifier. In order of importance it can be seen that URLSimilarityIndex had the the most predictive power followed by LineOfCode .That is only 2 features had more predictive power in the prediction process out of all the 51 features
+
+### Random Forest Classifier
+
+A Random Forest classifier is an ensemble learning method that combines multiple decision trees to improve the performance and robustness of the model.It is a powerful and versatile machine learning model that leverages the strength of multiple decision trees to achieve robust and accurate predictions, making it a popular choice across various applications in machine learning.The classification aspect of random forest make a perfect model for our analysis.
+
+![confusion matrix random forest](/plots/rfcm.png)
+
+The random forest classifer had 100% accuracy. The confusion matrix above shows a total count of 18246 indicating that the model was able able predict all of the positive class, that URL that are legitgimate. It also correctly predicted a total count 24198 URL that that are threat to an organization. The model did not incorrectly predict any legitimate URL nor Phishing URL. This makes random forest a best model in the model selection for our subsequent analysis.
+
+​![Feature Selection random forest](/plots/rffeat.png)
+
+The graph above shows the most important variables selected in the predictive process of random forest classifier. In order of importance it can be seen that URLSimilarityIndex had the the most predictive power followed by NoOfExternalREf, then LineOfCode and it follows like that from the graph .It can be see that 28 features had more predictive power in the prediction process out of all the 51 features
+
+## SUMMARY OF RESULTS
+
+|Model                            | Accuracy | F1 Score  | Precision |
+|---------------------------------|----------|-----------|-----------|
+|XGboost                          | 1.00000  | 1.00000   | 1.00000   |
+|Decision Tree                    | 1.00000  | 1.00000   | 1.00000   |
+|Random Forest                    | 1.00000  | 1.00000   | 1.00000   |
+|Regularized Logistic Regression  | 0.99609  | 0.99661   | 0.996529  |
+|Support Vector Machine           | 0.89023  | 0.89075   | 0.90380   |
 
 
 
