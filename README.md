@@ -153,7 +153,18 @@ The graph above shows the most important variables selected in the predictive pr
 |Support Vector Machine           | 0.89023  | 0.89075   | 0.90380   |
 
 
-![Bar plot of accuracy](/plots/rfcm.png)
+#### Bar Graph of Accuracy among  Different Models
+
+![Bar plot of accuracy](/plots/accuracy.png)
+
+This bar chart visualizes the accuracy of five different machine learning models:
+Observations:
+Random Forest, Decision Tree, and XGBoost:
+These models achieve the highest accuracy of 1.0 (100%), meaning they perfectly classified the test data without errors.
+Logistic Regression:
+The accuracy is 0.996 (~99.6%), indicating it is highly accurate but not as perfect as the models above.
+Support Vector Machine (SVM):
+The accuracy is 0.89 (~89%), which is noticeably lower compared to the other models.
 
 
 
