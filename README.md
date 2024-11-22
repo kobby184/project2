@@ -64,7 +64,20 @@ After comparing the accuracy score of each model, the best model(s) is selected.
 ### REGULARIZE LOGISTIC REGRESSION
 Is a Machine Learning classification algorithm that is used to predict the probability of a categorical dependent variable. In logistic regression, the dependent variable is a binary variable that contains data coded as 1 (yes, success, etc.) or 0 (no, failure, etc.). In other words, the logistic regression model predicts P(Y=1) as a function of X. This means this algorithm is a perfect model for our analysis
 
-![Confusion matrix of regularized logistic regression](/plots/barplt.png)
+![Confusion matrix of regularized logistic regression](/plots/regconfusion.png)
+
+A logistic regression with L2 regularization penalty is used, a parameter grid for the regularization strength 'C' is defined. I also use a grid search cross validation to find the best value of the regularization strength. The best model is evaluated on the validation dataset. The coefficient of the best logistic regression model is extracted and is used to measure the feature importance and is plotted for visualization. A confusion matrix is also plotted to summarize and display the number of accurate and inaccurate instances based on our model’s prediction. L2 regularization is used because is less prone to overfitting.
+The confusion matrix of the regularized logistic regression above had a true positive of 18162.This means the model was able to find a total count of 18162 having both predicted and actual values of legitimate URL, which is not a cyber threat. The model was able to correctly predict 24116 counts of threat that were Phishing URL. It incorrectly predicted 82 legitimate URL instead of a Phishing URL and incorrectly predicted 84 Phishing URL instead legitimate URL. The model had 99.6% accuracy score; this makes it almost near perfect for model selection.
+
+![Feature Importance regularized logistic regression](/plots/featureimportan.png)
+
+This graph is the variable importance selection for the regularized logistic regression. It shows some variables have positive impact on the response variable. It can be seen that features like URLLength,NoOfLettersInURL, DomainLength,NoOfSelfRef ,etc contribute most to the models prediction process. Features like IsDomainIp,Bank,URLCharProb ,etc have less contribution to the model's prediction process. Out of the 51 features 41 variables had an impact in the prediction process
+
+### XGBOOSTING CLASSIFIER
+
+XGBoost, or eXtreme Gradient Boosting, is a machine learning algorithm that's used to train and test models on large amounts of data. It's a popular choice for data scientists because it's open-source, free to use, and has many features that make it efficient and flexible. XGBoost is designed for speed and can outperform other models, such as logistic regression. It can be used in solving classification probelems. This makes it a perfect algorithm for our model selection analysis
+
+
 
 
 
