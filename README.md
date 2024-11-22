@@ -6,6 +6,7 @@
 - [Data Cleaning and Preparation](#data-cleaning-and-preparation)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Model Selection](#model-selection)
+- [SUMMARY OF RESULTS](#summary-of-results)
 
 
 ## Project Overview
