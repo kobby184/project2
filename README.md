@@ -5,6 +5,7 @@
 - [Data Description](#data-description)
 - [Data Cleaning and Preparation](#data-cleaning-and-preparation)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Model Selection](#model-selection)
 
 
 ## Project Overview
@@ -76,6 +77,42 @@ This graph is the variable importance selection for the regularized logistic reg
 ### XGBOOSTING CLASSIFIER
 
 XGBoost, or eXtreme Gradient Boosting, is a machine learning algorithm that's used to train and test models on large amounts of data. It's a popular choice for data scientists because it's open-source, free to use, and has many features that make it efficient and flexible. XGBoost is designed for speed and can outperform other models, such as logistic regression. It can be used in solving classification probelems. This makes it a perfect algorithm for our model selection analysis
+
+![Confusion Matrix XGboost classifier](/plots/xgcm.png)
+
+The data was pre-processed and split into train and validation datasets of 80% and 20% respectively. The data has no missing values. The data was checked for duplication and various data types were checked and changed to fit the model. One hot encoding was done for the categorical variables. A feature importance was used to check the variables having more predictive power on our target variable. confusion matrix is also plotted to get detailed view of the classification model's performance.All parameters were left at default to serve as a benchmark to evaluate other models and algorithms. XGBoost builds an ensemble of decision trees sequentially.
+
+The xgboosting classifer had 100% accuracy. The confusion matrix above shows a total count of 18246 indicating that the model was able able predict all of the positive class, that URL that are legitgimate. It also correctly predicted a total count 24198 URL that that are threat to an organization. The model did not incorrectly predict any legitimate URL nor Phishing URL. This makes xgboosting a best for model selection in our subsequent analysis.
+
+![Feature Selection XGboost classifier](/plots/fixg.png)
+
+The graph above shows the most important variables selected in the predictive process of xgboosting. In order of importance it can be seen that URLSimilarityIndex had the the most predictive power followed by LineOfCode and then IsHTTPS. This can furthur be understood by the default plot importance function that comes with the xgboosting classifier. This is explain below
+
+The plot importance function that comes with the xgboosting classifier is used to check some of the variables that has more predictive power on the target varible based on three different metric. That's gain,cover and weight metric.
+
+![Feature Selection XGboost classifier](/plots/xgbclas.png)
+
+The graph above is a feature importance based on the weights. Weight represents the number of times a feature is used to split the data across all trees in the model.Features with higher weights are considered more important because they are involved in more splits, thereby having a greater impact on the model's predictions. It can be seen that out of the 51 features 17 were involved the prediction process, however, URLSimilarityIndex,LineOfCode and IsHTTPS have higher weights meaning they were involved in the prediction process.
+
+![Feature Selection XGboost classifier](/plots/xgbclas1.png)
+
+The graph above is a feature importance based on the Gain.Gain is the average gain of splits which use the feature. In other words, it represents the average improvement in the loss function (objective) brought by a feature when it is used to split the data at a decision tree node. Gain reflects the contribution of a feature to the model’s predictive power. Higher gain values indicate that a feature has a higher impact on the model’s predictions.Here too it can be seen that the features URLSimilarityIndex,LineOfCode and IsHTTPS have higher gains using the default plot importance of the xgboosting classifier.
+
+
+![Feature Selection XGboost classifier](/plots/xgbclas2.png)
+
+The graph above is a feature importance based on the cover.Cover measures the relative quantity of observations related to each feature. Specifically, it is the average coverage (number of samples) of the splits which use the feature.Cover indicates how often and extensively a feature is used in the model. A feature with high cover means it is used in many splits and thus plays a significant role in the model’s structure.Once again URLSimilarityIndex,LineOfCode and IsHTTPS features played an important role in the model's structure.
+
+It can be seen that when you look at all the three in-built feature plot importance , out of the 51 features 17 were more invovled in the structure and spliting process of the xgboosting model. Howver URLSimilarityIndex,LineOfCode and IsHTTPS played more important role in the predictive process.
+
+### Support Vector Machine Classifier
+
+A Support Vector Machine (SVM) classifier is a supervised machine learning algorithm that analyzes data for classification and regression analysis. Its primary objective is to find the optimal hyperplane (decision boundary) in an N-dimensional space that distinctly classifies data points into different categories. this makes a best model for our classification problem.
+
+
+
+
+
 
 
 
