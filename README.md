@@ -153,6 +153,9 @@ The graph above shows the most important variables selected in the predictive pr
 |Support Vector Machine           | 0.89023  | 0.89075   | 0.90380   |
 
 
+![Bar plot of accuracy](/plots/rfcm.png)
+
+
 
 
 
